@@ -1,0 +1,111 @@
+/*BACKGROUND_SLIDER-AREA*/
+.bg_slider_morning{
+    background: url(../img/home1/morningBlue.png) no-repeat scroll center center / cover;
+}
+.bg_slider_day{
+    background: url(../img/home1/day.png) no-repeat scroll center center / cover;
+}
+.bg_slider_evening{
+    background: url(../img/home1/evening.png) no-repeat scroll center center / cover;
+}
+.bg_slider_night{
+    background: url(../img/home1/night.png) no-repeat scroll center center / cover;
+}
+
+/*PARALLAX*/
+.parallax_morning{
+    background: url(../img/home1/morningClouds.png) no-repeat scroll 0 30px / calc(116% + 0px) auto;
+}
+.parallax_day{
+    background: rgba(0, 0, 0, 0) url(../img/home1/dayClouds.png) no-repeat scroll 0 30px / calc(116% + 0px) auto;
+}
+.parallax_evening{
+    background: rgba(0, 0, 0, 0) url(../img/home1/eveningClouds.png) no-repeat scroll 0 30px / calc(116% + 0px) auto;
+}
+.parallax_night{
+    background: rgba(0, 0, 0, 0) url(../img/home1/NightStar.png) no-repeat scroll 0 30px / calc(116% + 0px) auto;
+}
+
+/*BACKGROUND_FOOTER*/
+.bg_footer_night{
+    background: url(../img/home1/footer2-bg-ni.png) no-repeat scroll center center / cover;
+}
+.bg_footer_morning{
+    background: url(../img/home1/footer2-bg-mo.png) no-repeat scroll center center / cover ;
+}
+.bg_footer_day{
+    background: url(../img/home1/footer2-bg-day.png) no-repeat scroll center center / cover;
+}
+.bg_footer_evening{
+    background: url(../img/home1/footer2-bg-eve.png) no-repeat scroll center center / cover;
+}
+
+/*ABOUT-US*/
+/*LINE_TOP*/
+/*MAIN*/
+.index_evening_line_top{
+    opacity: 1;
+    background: #d9edf7;
+}
+.index_morning_line_top{
+    opacity: 1;
+}
+.index_day_line_top{
+    opacity: 1;
+}
+.index_night_line_top{
+    opacity: 1;
+}
+/*all*/
+.night_line_top {
+    background: #013394;
+}
+.day_line_top{
+    background: #82cdf4;
+}
+.morning_line_top{
+    background: #82cdf4;
+}
+.evening_line_top{
+    background: #8a82f4;
+}
+/*HEADER_WITH_CLOUDS*/
+.header_clouds_mo{
+    background: #a6e1ec url(../images/class1/bread-bg.png) no-repeat scroll 0 0 / cover;
+}
+.header_clouds_day {
+    background: #a6e1ec url(../images/class1/bread-bg.png) no-repeat scroll 0 0 / cover;
+}
+.header_clouds_night {
+    background: #013394 url(../images/class1/bread-bg.png) no-repeat scroll 0 0 / cover;
+}
+.header_clouds_evening{
+    background: #8a82f4 url(../images/class1/bread-bg.png) no-repeat scroll 0 0 / cover;
+}
+
+/*ROUTINE*/
+/*TABLE*/
+.main_th_night{
+    background: #01215a;
+}
+.th_table_night{
+    background: #013394;
+}
+.main_th_day{
+    background: #91c0cb;
+}
+.th_table_day{
+    background: #a6e1ec;
+}
+.main_th_morning{
+    background: #91c0cb;
+}
+.th_table_morning{
+    background: #a6e1ec;
+}
+.main_th_evening{
+    background: rgba(80, 74, 140, 0.89);
+}
+.th_table_evening{
+    background: #8a82f4;
+}
