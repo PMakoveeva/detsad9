@@ -6,42 +6,17 @@
  * Time: 13:54
  */
 
-date_default_timezone_set('Asia/Yekaterinburg');
-
-$hour=date('G');
-
-$hour = (isset($_GET['hour']))?$_GET['hour']:$hour;
-
-if($hour>=23 || $hour<5 && $hour>=0){
-    $css['bg_slider']='bg_slider_night';
-    $css['parallax']='parallax_night';
-    $css['bg_footer']='bg_footer_night';
-
-}
-if($hour>5 && $hour<13){
-    $css['bg_slider']='bg_slider_morning';
-    $css['parallax']='parallax_morning';
-    $css['bg_footer']='bg_footer_morning';
-
-}
-if($hour>=13 && $hour<17){
-    $css['bg_slider']='bg_slider_day';
-    $css['parallax']='parallax_day';
-    $css['bg_footer']='bg_footer_day';
-}
-if($hour>=17 && $hour<23){
-    $css['bg_slider']='bg_slider_evening';
-    $css['parallax']='parallax_evening';
-    $css['bg_footer']='bg_footer_evening';
-
-}
+use yii\widgets\Menu;
+use yii\helpers\Html;
+use app\controllers\SiteController;
+$css = SiteController::getCssStyle();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Kidzy</title>
-    <base href="<?=Yii::$app->homeUrl?>">
+    <base href="<?= Yii::$app->homeUrl ?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -63,7 +38,7 @@ if($hour>=17 && $hour<23){
     <script src="js/html5shive.js"></script>
     <![endif]-->
     <style>
-        .owl-carousel.owl-theme{
+        .owl-carousel.owl-theme {
             background-color: <?php ?>
         }
     </style>
@@ -118,22 +93,31 @@ if($hour>=17 && $hour<23){
                     <div class="logo pull-left">
                         <a href="index.php"><img alt="Kidzy" src="images/home1/logo.png"></a>
                     </div>
+                    <?=
+                    Menu::widget([
+                        'items' => [
+                            ['label' => 'Home', 'url' => ['site/index']],
+                            ['label' => 'About-us', 'url' => ['site/about-us'],
+                                'items'=>[
+                                        ['label'=>'Pol','url'=>['#']],
+
+                                ],
+                                'options'=>['class'=>'menu-has-child'],
+                            ]
+                        ],
+                        'options' => ['class' => 'main-menu pull-right']
+                    ]);
+                    ?>
                     <ul class="main-menu pull-right">
-                        <li class="menu-has-child">
-                            <a href="<?=Yii::$app->urlManager->createUrl(['index.php'])?>">Home</a>
-                            <!--                                    <ul>-->
-                            <!--                                        <li><a href="index2.html">Home 2</a></li>-->
-                            <!--                                        <li><a href="index3.html">Home 3</a></li>-->
-                            <!--                                    </ul>-->
-                        </li>
-                        <li><a href="<?=Yii::$app->urlManager->createUrl(['about-us.php'])?>">About us</a></li>
                         <li class="menu-has-child">
                             <a href="#">Pages</a>
                             <ul>
                                 <li>
                                     <a href="event.php">Event</a>
                                     <ul>
-                                        <li><a href="event-details.php">Event Details</a></li>
+                                        <li><a href="<?=\yii\helpers\Url::to(['site/blog'])?>">Event Details</a></li>
+                                        <li><?=\yii\helpers\Html::a('Not Blog',['site/notblog','id'=>5])?></li>
+                                        <li><?=\yii\helpers\Html::button('Hello',['class'=>'btn btn-primary'])?></li>
                                     </ul>
                                 </li>
                                 <li><a href="routine.php">Routine</a></li>
@@ -187,7 +171,7 @@ if($hour>=17 && $hour<23){
 <?= $content ?>
 
 <!-- Footer Section -->
-<footer class="footer-section <?php echo isset ($css['bg_footer'])?$css['bg_footer']:''?>">
+<footer class="footer-section <?php echo isset ($css['bg_footer']) ? $css['bg_footer'] : '' ?>">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-12 text-left">
@@ -260,8 +244,10 @@ if($hour>=17 && $hour<23){
                 <h2 class="title" id="loginModalLabel">Already Registered</h2>
                 <form id="login-form" method="post" action="#">
                     <fieldset class="userdata">
-                        <input type="text" required="required" class="input-username" name="username" placeholder="Username">
-                        <input type="password" required="required" class="input-password" name="password" placeholder="Password">
+                        <input type="text" required="required" class="input-username" name="username"
+                               placeholder="Username">
+                        <input type="password" required="required" class="input-password" name="password"
+                               placeholder="Password">
                         <div class="clearfix"></div>
                         <div class="button-wrap">
                             <button type="submit">Log in</button>
