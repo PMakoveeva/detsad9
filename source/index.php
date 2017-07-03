@@ -18,6 +18,7 @@
         $css['parallax']='parallax_night';
         $css['bg_footer']='bg_footer_night';
 
+
     }
      if($hour>5 && $hour<13){
          $css['bg_slider']='bg_slider_morning';
