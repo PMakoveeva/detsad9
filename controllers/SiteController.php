@@ -273,93 +273,18 @@ class SiteController extends Controller
     }
 
     public function  actionRoutine(){
-        date_default_timezone_set('Asia/Yekaterinburg');
 
-        $hour=date('G');
-
-        $hour = (isset($_GET['hour']))?$_GET['hour']:$hour;
-
-        if($hour>=23 || $hour<5 && $hour>=0){
-            $css['colour_line_top']='night_line_top';
-            $css['bg_footer']='bg_footer_night';
-            $css['header']='header_clouds_night';
-        }
-        if($hour>5 && $hour<13){
-            $css['colour_line_top']='morning_line_top';
-            $css['bg_footer']='bg_footer_morning';
-            $css['header']='header_clouds_mo';
-        }
-        if($hour>=13 && $hour<17){
-            $css['colour_line_top']='day_line_top';
-            $css['bg_footer']='bg_footer_day';
-            $css['header']='header_clouds_day';
-        }
-        if($hour>=17 && $hour<23){
-            $css['colour_line_top']='evening_line_top';
-            $css['bg_footer']='bg_footer_evening';
-            $css['header']='header_clouds_evening';
-        }
-        return $this->render('routine', $css);
+        return $this->render('routine', $this->getCss());
     }
 
     public function actionEvent(){
-        date_default_timezone_set('Asia/Yekaterinburg');
 
-        $hour=date('G');
-
-        $hour = (isset($_GET['hour']))?$_GET['hour']:$hour;
-
-        if($hour>=23 || $hour<5 && $hour>=0){
-            $css['colour_line_top']='night_line_top';
-            $css['bg_footer']='bg_footer_night';
-            $css['header']='header_clouds_night';
-        }
-        if($hour>5 && $hour<13){
-            $css['colour_line_top']='morning_line_top';
-            $css['bg_footer']='bg_footer_morning';
-            $css['header']='header_clouds_mo';
-        }
-        if($hour>=13 && $hour<17){
-            $css['colour_line_top']='day_line_top';
-            $css['bg_footer']='bg_footer_day';
-            $css['header']='header_clouds_day';
-        }
-        if($hour>=17 && $hour<23){
-            $css['colour_line_top']='evening_line_top';
-            $css['bg_footer']='bg_footer_evening';
-            $css['header']='header_clouds_evening';
-        }
-        return $this->render('event', $css);
+        return $this->render('event', $this->getCss());
     }
 
     public function actionContact(){
-        date_default_timezone_set('Asia/Yekaterinburg');
 
-        $hour=date('G');
-
-        $hour = (isset($_GET['hour']))?$_GET['hour']:$hour;
-
-        if($hour>=23 || $hour<5 && $hour>=0){
-            $css['colour_line_top']='night_line_top';
-            $css['bg_footer']='bg_footer_night';
-            $css['header']='header_clouds_night';
-        }
-        if($hour>5 && $hour<13){
-            $css['colour_line_top']='morning_line_top';
-            $css['bg_footer']='bg_footer_morning';
-            $css['header']='header_clouds_mo';
-        }
-        if($hour>=13 && $hour<17){
-            $css['colour_line_top']='day_line_top';
-            $css['bg_footer']='bg_footer_day';
-            $css['header']='header_clouds_day';
-        }
-        if($hour>=17 && $hour<23){
-            $css['colour_line_top']='evening_line_top';
-            $css['bg_footer']='bg_footer_evening';
-            $css['header']='header_clouds_evening';
-        }
-        return $this->render('contact', $css);
+        return $this->render('contact', $this->getCss());
     }
     public function actionIndex()
     {
