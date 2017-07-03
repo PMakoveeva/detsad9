@@ -147,8 +147,8 @@ class SiteController extends Controller
 
 
     public function actionBlog(){
-        
-        return $this->render('blog');
+
+        return $this->render('blog', $this->getCss());
     }
 
 
