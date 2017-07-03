@@ -56,16 +56,7 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public  function  actionHello()
-    {
-        return $this->render('hello');
-    }
-    public function actionEventDetails(){
+        public function actionEventDetails(){
         date_default_timezone_set('Asia/Yekaterinburg');
 
         $hour=date('G');
