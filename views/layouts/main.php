@@ -91,64 +91,55 @@ $css = SiteController::getCssStyle();
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <div class="logo pull-left">
-                        <a href="index.php"><img alt="Kidzy" src="images/home1/logo.png"></a>
+                        <a href="<?=\yii\helpers\Url::to(['site/index'])?>"><img alt="Kidzy" src="images/home1/logo.png"></a>
                     </div>
                     <?=
                     Menu::widget([
                         'items' => [
                             ['label' => 'Home', 'url' => ['site/index']],
-                            ['label' => 'About-us', 'url' => ['site/about-us'],
+                            ['label' => 'About-us', 'url' => ['site/about-us']],
+                            ['label' => 'Pages', 'url' => ['#'],
                                 'items'=>[
-                                        ['label'=>'Pol','url'=>['#']],
+                                    ['label'=>'Event','url'=>['site/event'],
+                                        'items'=>[
+                                            ['label'=>'Event details','url'=>['site/event-details']],
+                                        ],
+                                    ],
+                                    ['label'=>'Routine','url'=>['site/routine']],
+                                    ['label'=>'Contact','url'=>['site/contact']],
+                                ],
 
+                                'options'=>['class'=>'menu-has-child'],
+                            ],
+                            ['label' => 'Features', 'url' =>['site/shortcode']],
+                            ['label' => 'Class', 'url' => ['site/class'],
+                                'items'=>[
+                                    ['label'=>'Class details','url'=>['site/class-details']],
                                 ],
                                 'options'=>['class'=>'menu-has-child'],
-                            ]
+                            ],
+                            ['label' => 'Blog', 'url' => ['site/blog'],
+                                'items'=>[
+                                    ['label'=>'Blog details','url'=>['site/blog-details']],
+                                ],
+                                'options'=>['class'=>'menu-has-child'],
+                            ],
+                            ['label' => 'Teacher', 'url' => ['site/teacher'],
+                                'items'=>[
+                                    ['label'=>'Teacher details','url'=>['site/teacher-details']],
+                                ],
+                                'options'=>['class'=>'menu-has-child'],
+                            ],
+
                         ],
                         'options' => ['class' => 'main-menu pull-right']
-                    ]);
-                    ?>
+                    ]);?>
                     <ul class="main-menu pull-right">
-                        <li class="menu-has-child">
-                            <a href="#">Pages</a>
-                            <ul>
-                                <li>
-                                    <a href="event.php">Event</a>
-                                    <ul>
-                                        <li><a href="<?=\yii\helpers\Url::to(['site/blog'])?>">Event Details</a></li>
-                                        <li><?=\yii\helpers\Html::a('Not Blog',['site/notblog','id'=>5])?></li>
-                                        <li><?=\yii\helpers\Html::button('Hello',['class'=>'btn btn-primary'])?></li>
-                                    </ul>
-                                </li>
-                                <li><a href="routine.php">Routine</a></li>
-                                <li><a href="contact.php">Contact</a></li>
-                                <li><a href="404.php">404</a></li>
-                                <li><a href="coming-soon.php">Coming Soon</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="shortcode.php">Features</a></li>
-                        <li class="menu-has-child">
-                            <a href="class.php">Classes</a>
-                            <ul>
-                                <li><a href="class-details.php">Classes Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-has-child">
-                            <a href="blog.php">Blog</a>
-                            <ul>
-                                <li><a href="blog-details.php">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-has-child">
-                            <a href="teacher.php">Teacher</a>
-                            <ul>
-                                <li><a href="teacher-details.php">Teacher Details</a></li>
-                            </ul>
-                        </li>
                         <li>
-                            <a href="#" id="search-pop"><i class="fa fa-search"></i></a>
+                                <a href="#" id="search-pop"><i class="fa fa-search"></i></a>
                         </li>
                     </ul>
+
                     <div class="mobile-menu hidden-lg hidden-md hidden-sm">
                         <span></span>
                         <span></span>

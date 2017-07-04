@@ -7,7 +7,7 @@
                 <div class="breadcrumb-content">
                     <h2>About Us</h2>
                     <ul>
-                        <li><a href="index.php">Home</a><span>/</span></li>
+                        <li><a href="<?=\yii\helpers\Url::to(['site/index'])?>">Home</a><span>/</span></li>
                         <li>About Us</li>
                     </ul>
                 </div>
