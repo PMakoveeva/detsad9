@@ -71,16 +71,16 @@
 }
 /*HEADER_WITH_CLOUDS*/
 .header_clouds_mo{
-    background: #a6e1ec url(../images/class1/bread-bg.png) no-repeat scroll 0 0 / cover;
+    background: #a6e1ec url(../images/class1/bread-bg-day.png) no-repeat scroll 0 0 / cover;
 }
 .header_clouds_day {
-    background: #a6e1ec url(../images/class1/bread-bg.png) no-repeat scroll 0 0 / cover;
+    background: #a6e1ec url(../images/class1/bread-bg-day.png) no-repeat scroll 0 0 / cover;
 }
 .header_clouds_night {
-    background: #013394 url(../images/class1/bread-bg.png) no-repeat scroll 0 0 / cover;
+    background: #013394 url(../images/class1/bread-bg-night.png) no-repeat scroll 0 0 / cover;
 }
 .header_clouds_evening{
-    background: #8a82f4 url(../images/class1/bread-bg.png) no-repeat scroll 0 0 / cover;
+    background: #8a82f4 url(../images/class1/bread-bg-evening.png) no-repeat scroll 0 0 / cover;
 }
 
 /*ROUTINE*/
