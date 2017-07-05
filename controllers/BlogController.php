@@ -36,13 +36,17 @@ class BlogController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
+       /* $dataProvider = new ActiveDataProvider([
             'query' => Blog::find(),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-        ]);
+        ]);*/
+       $query = Blog::find()->all();
+       return $this->render('index',[
+           'articles'=>$query,
+       ]);
     }
 
 

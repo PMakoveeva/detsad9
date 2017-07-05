@@ -9,6 +9,7 @@
 use yii\widgets\Menu;
 use yii\helpers\Html;
 use app\controllers\SiteController;
+
 $css = SiteController::getCssStyle();
 ?>
 
@@ -39,23 +40,26 @@ $css = SiteController::getCssStyle();
     <![endif]-->
     <style>
         .owl-carousel.owl-theme {
-            <?php
-            $hour=date('G');
+        <?php
+        $hour=date('G');
 
-            $hour = (isset($_GET['hour']))?$_GET['hour']:$hour;
+        $hour = (isset($_GET['hour']))?$_GET['hour']:$hour;
 
 
-            if($hour>=23 || $hour<5 && $hour>=0){
-                ?> background: #013394;<?php
-            }
-            if($hour>5 && $hour<13){
-                ?> background: #82cdf4; <?php
-            }
-            if($hour>=13 && $hour<17){
-                ?> background: #82cdf4; <?php
-            }
-            if($hour>=17 && $hour<23){
-                ?> background: #8a82f4<?php ;
+        if($hour>=23 || $hour<5 && $hour>=0){
+            ?> background: #013394;
+        <?php
+                    }
+                    if($hour>5 && $hour<13){
+                        ?> background: #82cdf4;
+        <?php
+                   }
+                   if($hour>=13 && $hour<17){
+                       ?> background: #82cdf4;
+        <?php
+                   }
+                   if($hour>=17 && $hour<23){
+                       ?> background: #8a82f4<?php ;
             }?>
         }
     </style>
@@ -108,7 +112,8 @@ $css = SiteController::getCssStyle();
             <div class="row">
                 <div class="col-sm-12 col-xs-12">
                     <div class="logo pull-left">
-                        <a href="<?=\yii\helpers\Url::to(['site/index'])?>"><img alt="Kidzy" src="images/home1/logo.png"></a>
+                        <a href="<?= \yii\helpers\Url::to(['site/index']) ?>"><img alt="Kidzy"
+                                                                                   src="images/home1/logo.png"></a>
                     </div>
                     <?=
                     Menu::widget([
@@ -116,47 +121,47 @@ $css = SiteController::getCssStyle();
                             ['label' => 'Home', 'url' => ['site/index']],
                             ['label' => 'About-us', 'url' => ['site/about-us']],
                             ['label' => 'Pages', 'url' => ['#'],
-                                'items'=>[
-                                    ['label'=>'Event','url'=>['site/event'],
-                                        'items'=>[
-                                            ['label'=>'Event details','url'=>['site/event-details']],
+                                'items' => [
+                                    ['label' => 'Event', 'url' => ['site/event'],
+                                        'items' => [
+                                            ['label' => 'Event details', 'url' => ['site/event-details']],
                                         ],
                                     ],
-                                    ['label'=>'Routine','url'=>['site/routine']],
-                                    ['label'=>'Contact','url'=>['site/contact']],
+                                    ['label' => 'Routine', 'url' => ['site/routine']],
+                                    ['label' => 'Contact', 'url' => ['site/contact']],
                                 ],
 
-                                'options'=>['class'=>'menu-has-child'],
+                                'options' => ['class' => 'menu-has-child'],
                             ],
-                            ['label' => 'Features', 'url' =>['site/shortcode']],
+                            ['label' => 'Features', 'url' => ['site/shortcode']],
                             ['label' => 'Class', 'url' => ['site/class'],
-                                'items'=>[
-                                    ['label'=>'Class details','url'=>['site/class-details']],
+                                'items' => [
+                                    ['label' => 'Class details', 'url' => ['site/class-details']],
                                 ],
-                                'options'=>['class'=>'menu-has-child'],
+                                'options' => ['class' => 'menu-has-child'],
                             ],
                             ['label' => 'Blog', 'url' => ['site/blog'],
-                                'items'=>[
-                                    ['label'=>'Blog details','url'=>['site/blog-details']],
+                                'items' => [
+                                    ['label' => 'Blog details', 'url' => ['site/blog-details']],
                                 ],
-                                'options'=>['class'=>'menu-has-child'],
+                                'options' => ['class' => 'menu-has-child'],
                             ],
                             ['label' => 'Teacher', 'url' => ['site/teacher'],
-                                'items'=>[
-                                    ['label'=>'Teacher details','url'=>['site/teacher-details']],
+                                'items' => [
+                                    ['label' => 'Teacher details', 'url' => ['site/teacher-details']],
                                 ],
-                                'options'=>['class'=>'menu-has-child'],
+                                'options' => ['class' => 'menu-has-child'],
                             ],
                             [
-                                    'label'=>'<i class="fa fa-search"></i>',
-                                'url'=>['#'],
+                                'label' => '<i class="fa fa-search"></i>',
+                                'url' => ['#'],
 
-                                'options'=>['id'=>'search-pop']],
+                                'options' => ['id' => 'search-pop']],
 
                         ],
                         'options' => ['class' => 'main-menu pull-right'],
-                        'encodeLabels'=>false,
-                    ]);?>
+                        'encodeLabels' => false,
+                    ]); ?>
 
 
                     <div class="mobile-menu hidden-lg hidden-md hidden-sm">
@@ -178,10 +183,30 @@ $css = SiteController::getCssStyle();
 </header>
 <!-- /.header-area -->
 
+<?php if (Yii::$app->controller->id !== 'site' || Yii::$app->controller->action->id !== 'index') : ?>
+    <!-- Breadcrumb  -->
+    <section class="breadcrumb-section <?php echo \app\controllers\SiteController::getCssStyle()['header'];?>">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 text-center">
+                    <div class="breadcrumb-content">
+                        <h2><?= Html::encode($this->title) ?></h2>
+                        <ul>
+                            <li><a href="index.php">Home</a><span>/</span></li>
+                            <li>Blog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.breadcrumb-section  -->
+<?php endif ?>
+
 <?= $content ?>
 
 <!-- Footer Section -->
-<footer class="footer-section <?php echo \app\controllers\SiteController::getCssStyle('bg_footer');?>">
+<footer class="footer-section <?php echo \app\controllers\SiteController::getCssStyle('bg_footer'); ?>">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-12 text-left">
