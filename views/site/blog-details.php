@@ -6,23 +6,7 @@
  * Time: 1:19
  */
 ?>
-<!-- Breadcrumb  -->
-<section class="breadcrumb-section <?php echo \app\controllers\SiteController::getCssStyle()['header'];?>">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-xs-12 text-center">
-                <div class="breadcrumb-content">
-                    <h2>Blog Details</h2>
-                    <ul>
-                        <li><a href="index.php">Home</a><span>/</span></li>
-                        <li>Blog Details</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- /.breadcrumb-section  -->
+
 
 <!-- Blog Post Section -->
 <section class="blog-post-section">
