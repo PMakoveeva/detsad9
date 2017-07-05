@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Comments;
 use \Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -170,7 +171,7 @@ class SiteController extends Controller
         return $css;
     }
 
-    public static function getCssStyle()
+    public static function getCssStyle($style='')
     {
         $hour=date('G');
 
@@ -197,7 +198,21 @@ class SiteController extends Controller
             $css['bg_footer']='bg_footer_evening';
             $css['header']='header_clouds_evening';
         }
-        return $css;
+        if (!empty($style)) {
+            $ret = (isset($css[$style]) ? $css[$style] : '');
+            return $ret;
+        } else {
+            return $css;
+        }
+    }
+
+    public function actionComments()
+    {
+        $comments = Comments::find()->all();
+        return $this->render( 'comments',
+            ['comments' => $comments]
+        );
+
     }
     /**
      * Login action.

@@ -595,9 +595,9 @@ div.owl-controls {
     top: 45%;
     width: 100%;
 }
-.owl-carousel.owl-theme{
-    background-color: #7ee5e8;
-}
+/*.owl-carousel.owl-theme{*/
+    /*background-color: #7ee5e8;*/
+/*}*/
 .slider-area.slider-3{
     background: url("../images/home1/main-slider3.jpg") no-repeat scroll center center / cover ;
 }

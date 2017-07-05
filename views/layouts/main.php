@@ -39,7 +39,24 @@ $css = SiteController::getCssStyle();
     <![endif]-->
     <style>
         .owl-carousel.owl-theme {
-            background-color: <?php ?>
+            <?php
+            $hour=date('G');
+
+            $hour = (isset($_GET['hour']))?$_GET['hour']:$hour;
+
+
+            if($hour>=23 || $hour<5 && $hour>=0){
+                ?> background: #013394;<?php
+            }
+            if($hour>5 && $hour<13){
+                ?> background: #82cdf4; <?php
+            }
+            if($hour>=13 && $hour<17){
+                ?> background: #82cdf4; <?php
+            }
+            if($hour>=17 && $hour<23){
+                ?> background: #8a82f4<?php ;
+            }?>
         }
     </style>
 </head>
@@ -130,15 +147,17 @@ $css = SiteController::getCssStyle();
                                 ],
                                 'options'=>['class'=>'menu-has-child'],
                             ],
+                            [
+                                    'label'=>'<i class="fa fa-search"></i>',
+                                'url'=>['#'],
+
+                                'options'=>['id'=>'search-pop']],
 
                         ],
-                        'options' => ['class' => 'main-menu pull-right']
+                        'options' => ['class' => 'main-menu pull-right'],
+                        'encodeLabels'=>false,
                     ]);?>
-                    <ul class="main-menu pull-right">
-                        <li>
-                                <a href="#" id="search-pop"><i class="fa fa-search"></i></a>
-                        </li>
-                    </ul>
+
 
                     <div class="mobile-menu hidden-lg hidden-md hidden-sm">
                         <span></span>
@@ -162,7 +181,7 @@ $css = SiteController::getCssStyle();
 <?= $content ?>
 
 <!-- Footer Section -->
-<footer class="footer-section <?php echo isset ($css['bg_footer']) ? $css['bg_footer'] : '' ?>">
+<footer class="footer-section <?php echo \app\controllers\SiteController::getCssStyle('bg_footer');?>">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-12 text-left">
