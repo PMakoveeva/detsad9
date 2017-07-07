@@ -382,7 +382,8 @@
 .slider-content h2{
     font-size: 50px;
     color: #148487;
-    font-family: 'Flavors', cursive;
+    /*font-family: 'Flavors', cursive;*/
+    font-family: 'Pangolin', cursive;
     margin-bottom: 8px;
 }
 .slider-content h3{
